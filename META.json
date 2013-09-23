@@ -4,8 +4,10 @@
       "Jeen Lee"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v0.5.5",
-   "license" : "perl_5",
+   "generated_by" : "Minilla/v0.6.7",
+   "license" : [
+      "perl_5"
+   ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
       "version" : "2"
@@ -41,7 +43,6 @@
       "runtime" : {
          "requires" : {
             "DBIx::Class::InflateColumn::Serializer" : "0",
-            "Data::Recursive::Encode" : "0",
             "Pg::hstore" : "0",
             "perl" : "5.008005"
          }
@@ -55,7 +56,7 @@
    "provides" : {
       "DBIx::Class::InflateColumn::Serializer::Hstore" : {
          "file" : "lib/DBIx/Class/InflateColumn/Serializer/Hstore.pm",
-         "version" : "0.01"
+         "version" : "0.02"
       }
    },
    "release_status" : "stable",
@@ -69,7 +70,7 @@
          "web" : "https://github.com/JEEN/p5-DBIx-Class-InflateColumn-Serializer-Hstore"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_contributors" : [
       "Jeen Lee <aiatejin@gmail.com>"
    ]

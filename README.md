@@ -15,7 +15,6 @@ DBIx::Class::InflateColumn::Serializer::Hstore - Hstore Inflator
                'data_type' => 'VARCHAR',
                'size'      => 255,
                'serializer_class' => 'Hstore',
-               'recursive_encode' => 1, # (optional) 
            }
         );
     

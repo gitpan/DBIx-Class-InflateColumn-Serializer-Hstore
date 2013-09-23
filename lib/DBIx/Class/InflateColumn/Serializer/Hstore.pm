@@ -3,28 +3,19 @@ use 5.008005;
 use strict;
 use warnings;
 use Pg::hstore;
-use Data::Recursive::Encode;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 sub get_freezer {
     my ( $class, $column, $info, $args ) = @_;
  
-    return sub {
-        my $val = shift;
-        $val = Data::Recursive::Encode->encode_utf8($val) if $info->{recursive_encode};
-        Pg::hstore::encode($val);
-    };
+    return sub { Pg::hstore::encode($_[0]) };
 }
  
 sub get_unfreezer {
     my ( $class, $column, $info, $args ) = @_;
   
-    return sub {
-        my $val = shift;
-        $val = Data::Recursive::Encode->decode_utf8($val) if $info->{recursive_encode};
-        Pg::hstore::decode($val);
-    };
+    return sub { Pg::hstore::decode($_[0]) };
 }
 
 1;
@@ -47,7 +38,6 @@ DBIx::Class::InflateColumn::Serializer::Hstore - Hstore Inflator
             'data_type' => 'VARCHAR',
             'size'      => 255,
             'serializer_class' => 'Hstore',
-            'recursive_encode' => 1, # (optional) 
         }
      );
  
